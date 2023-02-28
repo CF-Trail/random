@@ -567,7 +567,7 @@ misc:AddToggle(
 )
 farm:AddToggle(
         {
-	Name = "Gift Farm",
+	Name = "Event Farm",
 	Callback = function(TF)
 		getgenv().tf = TF
 		if tf then
