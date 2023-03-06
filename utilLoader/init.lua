@@ -98,15 +98,6 @@ end))
 
 -- // Memory bypass
 
-hookfunction((gcinfo), closure(function(...)
-	return math.random(400, 450)
-end))
-
-hookfunction((collectgarbage), closure(function(...)
-	return math.random(400, 450)
-end))
-
-
 local uwu
 uwu = hookmetamethod(game, '__namecall', closure(function(...)
 	local method = getnamecallmethod()
