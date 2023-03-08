@@ -14,8 +14,8 @@ local ltitles = {
 local part = Instance.new('Part', workspace)
 part.Anchored = true
 
-if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild('LocalScript') then
-	game.Players.LocalPlayer.Character:FindFirstChild("LocalScript"):Destroy()
+if game:GetService('Players').LocalPlayer.Character and game:GetService('Players').LocalPlayer.Character:FindFirstChild('LocalScript') then
+	game:GetService('Players').LocalPlayer.Character:FindFirstChild("LocalScript"):Destroy()
 	game:GetService("StarterPlayer").StarterCharacterScripts:FindFirstChild("LocalScript"):Destroy()
 end
 game:GetService('ReplicatedStorage').Remote.ReqCharVars.OnClientInvoke = function()
@@ -61,8 +61,8 @@ function getButton()
 end
 
 function Time(targetpos)
-   --local tme = (targetpos - game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart').Position).Magnitude / game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed
-	local tme = (game.Players.LocalPlayer.Character.Humanoid.RootPart.Position - targetpos).Magnitude / 20
+   --local tme = (targetpos - game:GetService('Players').LocalPlayer.Character:WaitForChild('HumanoidRootPart').Position).Magnitude / game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed
+	local tme = (game:GetService('Players').LocalPlayer.Character.Humanoid.RootPart.Position - targetpos).Magnitude / 20
 	return tme - 0.04
 end
 
@@ -88,7 +88,7 @@ function tp(cframe, speed)
 end 
 
 function handler()
-	char = game.Players.LocalPlayer.Character
+	char = game:GetService('Players').LocalPlayer.Character
 	char:WaitForChild('Humanoid')
 	char.Humanoid:GetPropertyChangedSignal('Health'):Connect(function()
 		if getgenv().godmode then
@@ -101,11 +101,11 @@ end
 
 handler()
 
-game.Players.LocalPlayer.CharacterAdded:Connect(function()
+game:GetService('Players').LocalPlayer.CharacterAdded:Connect(function()
 	handler()
 	task.wait(5)
-	game.Players.LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = getgenv().walkspeed
-	game.Players.LocalPlayer.Character.Humanoid.JumpPower = getgenv().jumppower
+	game:GetService('Players').LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = getgenv().walkspeed
+	game:GetService('Players').LocalPlayer.Character.Humanoid.JumpPower = getgenv().jumppower
 end)
 
 function float()
@@ -115,7 +115,7 @@ function float()
 			fpart.Name = 'floatpart'
 			fpart.Anchored = true
 			while task.wait() and getgenv().gettingbuttons do
-				fpart.CFrame = CFrame.new(game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart').Position - Vector3.new(0, 3, 0))
+				fpart.CFrame = CFrame.new(game:GetService('Players').LocalPlayer.Character:WaitForChild('HumanoidRootPart').Position - Vector3.new(0, 3, 0))
 			end
 		end
 	end)
@@ -129,24 +129,24 @@ mainTab:CreateToggle({
 		while task.wait() and getgenv().gettingbuttons do
 			map = workspace.Multiplayer:WaitForChild('Map')
 			button = getButton()
-			char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+			char = game:GetService('Players').LocalPlayer.Character or game:GetService('Players').LocalPlayer.CharacterAdded:Wait()
 			for i, v in next, map:GetDescendants() do
 				if v.Name == 'ExitRegion' and not map:FindFirstChild('completed') then
 					xor = Instance.new('IntValue', map)
 					xor.Name = 'completed'
 					tp(v.CFrame, Time(v.Position))
 					task.wait(Time(v.Position) + 0.2)
-					game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled('Dead', true)
+					game:GetService('Players').LocalPlayer.Character.Humanoid:SetStateEnabled('Dead', true)
 					task.wait(0.1)
-					game.Players.LocalPlayer.Character.Humanoid:ChangeState('Dead')
+					game:GetService('Players').LocalPlayer.Character.Humanoid:ChangeState('Dead')
 					task.wait(3)
 					repeat
 						task.wait()
-					until workspace:WaitForChild(game.Players.LocalPlayer.Name):FindFirstChild('HumanoidRootPart')
+					until workspace:WaitForChild(game:GetService('Players').LocalPlayer.Name):FindFirstChild('HumanoidRootPart')
 					game:GetService("ReplicatedStorage").Remote.AddedWaiting:FireServer(key)
 				end
 			end
-			hrp = game.Players.LocalPlayer.Character.Humanoid.RootPart
+			hrp = game:GetService('Players').LocalPlayer.Character.Humanoid.RootPart
 			pcall(function()
 				repeat
 					task.wait()
@@ -194,9 +194,9 @@ function _autoget()
 			map = workspace.Multiplayer:WaitForChild('Map')
 			for i, v in next, map:GetDescendants() do
 				if string.match(string.lower(v.Name), 'lost') and v.IsA(v, 'BasePart') then
-					v.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+					v.CFrame = CFrame.new(game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position)
 				elseif (string.match(string.lower(v.Name), 'rescue')) and v:FindFirstChild('Contact') then
-					v.Contact.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+					v.Contact.CFrame = CFrame.new(game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.Position)
 				end
 			end
 		end
@@ -281,7 +281,7 @@ mainTab:CreateToggle({
 				if not safespot then
 					break
 				end
-				game.Players.LocalPlayer.Character:WaitForChild('HumanoidRootPart').CFrame = CFrame.new(part.Position + Vector3.new(0, 5, 0))
+				game:GetService('Players').LocalPlayer.Character:WaitForChild('HumanoidRootPart').CFrame = CFrame.new(part.Position + Vector3.new(0, 5, 0))
 			end
 		end)
 	end,
@@ -307,7 +307,7 @@ lpTab:CreateSlider({
 	CurrentValue = 20,
 	Callback = function(ws)
 		getgenv().walkspeed = ws
-		game.Players.LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = walkspeed
+		game:GetService('Players').LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = walkspeed
 	end,
 })
 
@@ -321,6 +321,6 @@ lpTab:CreateSlider({
 	CurrentValue = 50,
 	Callback = function(jp)
 		getgenv().jumppower = jp
-		game.Players.LocalPlayer.Character:WaitForChild('Humanoid').JumpPower = jumppower
+		game:GetService('Players').LocalPlayer.Character:WaitForChild('Humanoid').JumpPower = jumppower
 	end,
 })
