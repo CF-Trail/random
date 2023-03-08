@@ -19,8 +19,8 @@ if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:Fin
 	game:GetService("StarterPlayer").StarterCharacterScripts:FindFirstChild("LocalScript"):Destroy()
 end
 game:GetService('ReplicatedStorage').Remote.ReqCharVars.OnClientInvoke = function()
-wait(9e9)
-   return {}
+	wait(9e9)
+	return {}
 end
 
 game:GetService("ReplicatedStorage").Remote.FetchPos.OnClientInvoke = function()
@@ -67,13 +67,13 @@ function Time(targetpos)
 end
 
 workspace.Multiplayer.DescendantAdded:Connect(function(t)
-   task.wait()
-   if t.Name == 'Map' and t.Parent.Name == 'Multiplayer' and t.IsA(t,'Model') then
-      if skipLoading then
-        task.wait(0.2)
-        game:GetService("ReplicatedStorage").Remote.LoadedMap:FireServer(key)        
-      end
-   end
+	task.wait()
+	if t.Name == 'Map' and t.Parent.Name == 'Multiplayer' and t.IsA(t, 'Model') then
+		if skipLoading then
+			task.wait(0.2)
+			game:GetService("ReplicatedStorage").Remote.LoadedMap:FireServer(key)
+		end
+	end
 	if string.match(string.lower(t.Name), 'water') and t.IsA(t, 'BasePart') and getgenv().waterwalk then
 		t.CanCollide = true
 	end
@@ -92,9 +92,9 @@ function handler()
 	char:WaitForChild('Humanoid')
 	char.Humanoid:GetPropertyChangedSignal('Health'):Connect(function()
 		if getgenv().godmode then
-			char.Humanoid:SetStateEnabled('Dead',false)
+			char.Humanoid:SetStateEnabled('Dead', false)
 		else
-			char.Humanoid:SetStateEnabled('Dead',true)	
+			char.Humanoid:SetStateEnabled('Dead', true)	
 		end
 	end)
 end
@@ -135,8 +135,8 @@ mainTab:CreateToggle({
 					xor = Instance.new('IntValue', map)
 					xor.Name = 'completed'
 					tp(v.CFrame, Time(v.Position))
-					task.wait(Time(v.Position) + 0.1)
-					game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled('Dead',true)
+					task.wait(Time(v.Position) + 0.2)
+					game.Players.LocalPlayer.Character.Humanoid:SetStateEnabled('Dead', true)
 					task.wait(0.1)
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState('Dead')
 					task.wait(3)
@@ -148,17 +148,23 @@ mainTab:CreateToggle({
 			end
 			hrp = game.Players.LocalPlayer.Character.Humanoid.RootPart
 			pcall(function()
-            repeat task.wait()
-               button = getButton()
-            until button ~= nil or workspace.Multiplayer.Map:FindFirstChild('ExitRegion')
-				print('Estimated time: ' .. tostring(Time(button.Position)))
-				print('Teleporting!')
-				tp(button.CFrame, Time(button.Position))
-				task.wait(Time(button.Position) + 0.2)
-            for i,v in next, char:GetChildren() do
-               if v.IsA(v,'BasePart') then v.Velocity = Vector3.zero; v.RotVelocity = Vector3.zero end
-            end
-				button:Destroy()
+				repeat
+					task.wait()
+					button = getButton()
+				until button ~= nil or workspace.Multiplayer.Map:FindFirstChild('ExitRegion')
+				if button then
+					print('Estimated time: ' .. tostring(Time(button.Position)))
+					print('Teleporting!')
+					tp(button.CFrame, Time(button.Position))
+					task.wait(Time(button.Position) + 0.2)
+					for i, v in next, char:GetChildren() do
+						if v.IsA(v, 'BasePart') then
+							v.Velocity = Vector3.zero;
+							v.RotVelocity = Vector3.zero
+						end
+					end
+					button:Destroy()
+				end
 			end)
 		end
 	end,
@@ -239,14 +245,16 @@ mainTab:CreateToggle({
 	CurrentValue = false,
 	Callback = function(value)
 		getgenv().autoVote = value
-      if autoVote then
-         task.spawn(function()
-            while task.wait(4) and getgenv().autoVote do
-               if not autoVote then break end
-               game:GetService("ReplicatedStorage").Remote.UpdMapVote:FireServer(key, 8, 0)
-            end
-         end)
-      end
+		if autoVote then
+			task.spawn(function()
+				while task.wait(4) and getgenv().autoVote do
+					if not autoVote then
+						break
+					end
+					game:GetService("ReplicatedStorage").Remote.UpdMapVote:FireServer(key, 8, 0)
+				end
+			end)
+		end
 	end,
 })
 
@@ -257,7 +265,7 @@ mainTab:CreateToggle({
 		getgenv().waterwalk = wwalk
 		for i, t in next, workspace.Multiplayer.Map:GetDescendants() do
 			if string.match(string.lower(t.Name), 'water') and t.IsA(t, 'BasePart') and getgenv().waterwalk then
-				t.CanCollide = not waterwalk
+				t.CanCollide = waterwalk
 			end
 		end
 	end
@@ -285,7 +293,7 @@ lpTab:CreateToggle({
 	CurrentValue = false,
 	Callback = function(gm)
 		getgenv().godmode = gm
-	        handler()
+		handler()
 	end,
 })
 
@@ -314,14 +322,5 @@ lpTab:CreateSlider({
 	Callback = function(jp)
 		getgenv().jumppower = jp
 		game.Players.LocalPlayer.Character:WaitForChild('Humanoid').JumpPower = jumppower
-	end,
-})
-
-miscTab:CreateToggle({
-	Name = 'Mute Emote Sounds [FE] [✅]',
-	CurrentValue = false,
-	Callback = function(gm)
-		getgenv().muteemotes = gm
-		funcmuteemotes()
 	end,
 })
