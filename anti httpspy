@@ -1,32 +1,23 @@
-local hook = hookfunction
-local closure = syn_newcclosure or newcclosure or function(_) end
-local oldReq = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
-local gGet = game.HttpGet
-local gAsync = game.HttpGetAsync
-
-hook(game.HttpGet, closure(function(...)
-    return nil
-end))
-
-hook(game.HttpGetAsync, closure(function(...)
-    return nil
-end))
-
 local cmds = {}
+local cf = clonefunction
 
-if typeof(hook) ~= "function" then
-    repeat task.wait() until game:IsLoaded()
-    game:GetService('Players').LocalPlayer:Kick('Missing hookfunction')
+if not cf or typeof(cf) ~= 'function' then
+   return
 end
+
+local pcf = cf(pcall)
+
+local suc, er = pcall(function()
+   pcf(function()
+      print('a')
+   end)
+end)
+
+if not suc then return end
 
 function cmds.HttpGet(...)
     local args = { ... }
-    return gGet(unpack(args))
-end
-
-function cmds.HttpGetAsync(...)
-    local args = { ... }
-    return gAsync(unpack(args))
+    return cf(game.HttpGetAsync)(game,unpack(args))
 end
 
 return cmds
