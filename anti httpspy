@@ -1,28 +1,54 @@
 local cmds = {}
 local cf = clonefunction
 local req = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
+local function crash()
+	while true do
+		while true do
+			
+		end
+	end
+end
+
+local old
+old = hookmetamethod(game, '__namecall', function(self, ...) -- notDSF http spy
+	local method = getnamecallmethod()
+	local ischeckcaller = checkcaller()
+	local args = {
+		...
+	}
+	if self.IsA(self, 'BindableEvent') and method == 'Fire' and ischeckcaller then
+		if typeof(args[1]) == 'table' and args[1].Url then
+			return crash()
+		end
+	end
+	return old(self, ...)
+end)
 
 if not cf or typeof(cf) ~= 'function' then
-   return
+	return
 end
 
 local pcf = cf(pcall)
 
 local suc, er = pcall(function()
-   pcf(function()
-      print('a')
-   end)
+	pcf(function()
+		print('a')
+	end)
 end)
 
-if not suc then return end
+if not suc then
+	return
+end
 
 function cmds.HttpGet(...)
-    local args = { ... }
-    return cf(game.HttpGetAsync)(game,unpack(args))
+	local args = {
+		...
+	}
+	return cf(game.HttpGetAsync)(game, unpack(args))
 end
 
 function cmds.request(...)
-   return cf(req)(...)
+	return cf(req)(...)
 end
 
 return cmds
