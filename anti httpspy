@@ -1,4 +1,9 @@
 local cmds = {}
+
+if not clonefunction or typeof(clonefunction) ~= 'function' then
+   return   
+end
+
 local __________________ = clonefunction
 local cf = clonefunction(__________________)
 local checking = true
