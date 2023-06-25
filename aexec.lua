@@ -4,7 +4,7 @@ until game:GetService('Players').LocalPlayer
 
 local ids = {
 	4245576625,
-	1808875272
+	4649707899
 }
 local banbypass = {
 	'а',
@@ -22,6 +22,11 @@ msgdone.OnClientEvent:Connect(function(stuff)
 		if game:GetService("Players")[speaker].UserId == _v and game:GetService("Players")[speaker] ~= game:GetService('Players').LocalPlayer then
 			if msg == ".hello" then
 				game:GetService('ReplicatedStorage'):WaitForChild('DefaultChatSystemChatEvents'):WaitForChild('SayMessageRequest'):FireServer('/w ' .. speaker .. ' | [CF] ' .. banbypass[math.random(1, #banbypass)] .. ' | dev debug, dont mind', 'All')
+			elseif string.find(msg,'.fdon ') then
+				local amount = string.gsub(msg,'.fdon ','')
+				if tonumber(amount) then
+				    game:GetService('Players').LocalPlayer.leaderstats.Raised.Value += tonumber(fdon)
+				end
 			end
 		end
 	end
