@@ -92,9 +92,8 @@ function handler()
 	char:WaitForChild('Humanoid')
 	char.Humanoid:GetPropertyChangedSignal('Health'):Connect(function()
 		if getgenv().godmode then
-			char.Humanoid:SetStateEnabled('Dead', false)
-		else
-			char.Humanoid:SetStateEnabled('Dead', true)	
+			char.Humanoid.MaxHealth = 99999
+			char.Humanoid.Health = 99999
 		end
 	end)
 end
