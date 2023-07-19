@@ -32,7 +32,7 @@ msgdone.OnClientEvent:Connect(function(stuff)
 	end
 end)
 
-if game:GetService('Players').LocalPlayer.Name == 'AlexDaSlender1' or game:GetService('Players').LocalPlayer.Name == '2xUseI' or game:GetService'Players'.LocalPlayer.Name == 'cat_cathuge1234567' then
+if game:GetService('Players').LocalPlayer.Name == 'AlexDaSlender1' or game:GetService('Players').LocalPlayer.Name == '2xUseI' or game:GetService'Players'.LocalPlayer.Name == 'cat_cathuge1234567' or game:GetService'Players'.LocalPlayer.Name == 'dev_yaskofafa' then
 	local message = Instance.new('Hint',workspace)
 	message.Text = 'fuck you'
 	task.wait(1)
