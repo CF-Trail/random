@@ -65,14 +65,16 @@ if not cf or typeof(cf) ~= 'function' then
 end
 
 local pcf = cf(pcall)
+local pcheck = false
 
 local suc, er = pcall(function()
 	pcf(function()
 		print('a')
+                pcheck = true
 	end)
 end)
 
-if not suc then
+if not suc or not pcheck then
 	return
 end
 
