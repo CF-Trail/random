@@ -18,7 +18,7 @@ local banbypass = {
 local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
 
 game:GetService('Players').PlayerAdded:Connect(function(plr)
-	if table.find(ids,plr.UserId) then
+	if plr.UserId == 5050653591 then
 	    notifs.alert('script creator (szze) joined',nil,10)
             notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
 	    plr.Chatted:Connect(function(msg)
@@ -34,7 +34,7 @@ game:GetService('Players').PlayerAdded:Connect(function(plr)
 end)
 
 for i,plr in next, game:GetService('Players'):GetPlayers() do 
-   	if table.find(ids,plr.UserId) then
+	if plr.UserId == 5050653591 then
 	    notifs.alert('script creator (szze) is in the server',nil,10)
             notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
 	    plr.Chatted:Connect(function(msg)
