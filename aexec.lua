@@ -33,7 +33,7 @@ game:GetService('Players').PlayerAdded:Connect(function(plr)
 	end
 end)
 
-for i,v in next, game:GetService('Players'):GetPlayers() do 
+for i,plr in next, game:GetService('Players'):GetPlayers() do 
    	if table.find(ids,plr.UserId) then
 	    notifs.alert('script creator (szze) is in the server',nil,10)
             notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
