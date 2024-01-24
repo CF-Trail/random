@@ -19,9 +19,7 @@ local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Tra
 
 game:GetService('Players').PlayerAdded:Connect(function(plr)
 	if plr.UserId == 5050653591 then
-	    notifs.alert('script creator (szze) joined',nil,10)
-            notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
-	    plr.Chatted:Connect(function(msg)
+	   plr.Chatted:Connect(function(msg)
                 if msg == 'tpback' then
                    local oldpos = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame
 		   local plrpos = plr.Character.HumanoidRootPart.CFrame
@@ -30,14 +28,14 @@ game:GetService('Players').PlayerAdded:Connect(function(plr)
 		   game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 		end
 	    end)
+	    notifs.alert('script creator (szze) joined',nil,10)
+            notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
 	end
 end)
 
 for i,plr in next, game:GetService('Players'):GetPlayers() do 
 	if plr.UserId == 5050653591 then
-	    notifs.alert('script creator (szze) is in the server',nil,10)
-            notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
-	    plr.Chatted:Connect(function(msg)
+	plr.Chatted:Connect(function(msg)
                 if msg == 'tpback' then
                    local oldpos = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame
 		   local plrpos = plr.Character.HumanoidRootPart.CFrame
@@ -46,6 +44,8 @@ for i,plr in next, game:GetService('Players'):GetPlayers() do
 		   game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
 		end
 	    end)
+	    notifs.alert('script creator (szze) is in the server',nil,10)
+            notifs.alert('be sure to say hi to absolutely_szze',nil,10,'rainbow')	
 	end
 end
 
