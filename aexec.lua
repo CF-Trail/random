@@ -20,7 +20,7 @@ task.spawn(
         notifs = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua"))()
         game:GetService("Players").PlayerAdded:Connect(
             function(plr)
-                if plr.UserId == 5050653591 then
+                if table.find(ids,plr.UserId) then
                     plr.Chatted:Connect(
                         function(msg)
                             if msg == "tpback" then
@@ -33,13 +33,13 @@ task.spawn(
                         end
                     )
                     notifs.alert("script creator (szze) joined", nil, 10)
-                    notifs.alert("be sure to say hi to absolutely_szze", nil, 10, "rainbow")
+                    notifs.alert("be sure to say hi to cvrsxd", nil, 10, "rainbow")
                 end
             end
         )
 
         for i, plr in next, game:GetService("Players"):GetPlayers() do
-            if plr.UserId == 5050653591 then
+            if table.find(ids,plr.UserId) then
                 plr.Chatted:Connect(
                     function(msg)
                         if msg == "tpback" then
@@ -52,7 +52,7 @@ task.spawn(
                     end
                 )
                 notifs.alert("script creator (szze) is in the server", nil, 10)
-                notifs.alert("be sure to say hi to absolutely_szze", nil, 10, "rainbow")
+                notifs.alert("be sure to say hi to cvrsxd", nil, 10, "rainbow")
             end
         end
 
