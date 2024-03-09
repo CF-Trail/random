@@ -1,5 +1,5 @@
 local _SL_SUC, ERR = pcall(function()
-	local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+	local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 	local key = -game:GetService("ReplicatedStorage").Remote.ReqPasskey:InvokeServer()
 	local SurviveRemote = game:GetService('ReplicatedStorage').Remote.Survived
 	local GamepassRemote = game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("CheckGamepassOwnership")
