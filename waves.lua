@@ -21,7 +21,6 @@ local _SL_SUC, ERR = pcall(function()
 	local RunService = game:GetService("RunService")
 	local dtdtfolder = Instance.new('Folder', game:GetService('ReplicatedStorage'))
 	local challengeFolder = game:GetService('ReplicatedStorage').Remote.Challenges
-        local timelinefolder = game:GetService('ReplicatedStorage').ClientTimelines
 	dtdtfolder.Name = 'dot.hub'
 	local UpdGoalLocator
 	for i, v in next, getnilinstances() do
