@@ -6,13 +6,10 @@ local _SL_SUC, ERR = pcall(function()
 	local gamepassIds = {4223166,9702661,14432092,14784835,25822678,111099120,141376407,14112023}
 	local subs = {
 		'button instatp!!!!',
-		'why am i 1st lvl??',
 		"You're banned for exploiting",
-		'crashing dtt!!!',
-		'is this a roblox issue?',
 		'hacker',
 		'im reporting you',
-		'i took a snapshot!!!'
+		'i took a snapshot!'
 	}
 	local ltitles = {
 		'welcome',
@@ -450,8 +447,8 @@ local _SL_SUC, ERR = pcall(function()
 			btns.CanTouch = true
 			if button then
 				for i = 0, 7 do
-					hrp.CFrame = CFrame.new(button.Position + Vector3.new(0, math.random(), 0))
-					task.wait(0.04)
+					hrp.CFrame = CFrame.new(button.Position + Vector3.new(0.1, math.random(), 0))
+					task.wait(0.05)
 				end
 			end
 			hrp.CFrame = CFrame.new(button.Position)
@@ -472,20 +469,6 @@ local _SL_SUC, ERR = pcall(function()
 			end
 		end,
 	})
-	function funcmuteemotes()
-		task.spawn(function()
-			while task.wait() and getgenv().muteemotes do
-				if getgenv().muteemotes == false then
-					break
-				end
-				for i, v in next, workspace:GetDescendants() do
-					if v.IsA(v, 'Sound') then
-						v:Stop()
-					end
-				end
-			end
-		end)
-	end
 	function _autoget()
 		task.spawn(function()
 			while task.wait(3) and getgenv().misc do
