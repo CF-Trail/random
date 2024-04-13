@@ -1,0 +1,21 @@
+game.Players.PlayerAdded:Connect(function(plr)
+x = plr:WaitForChild("MapVote")
+x.Changed:Connect(function()
+if x.Value ~= "" then
+pcall(function()
+notification(x.Parent.Name .. " has voted", "Map: " .. x.Value,3)
+end)
+end
+end)
+end)
+
+for i,v in next, game.Players:GetPlayers() do
+x = v.MapVote
+x.Changed:Connect(function()
+if x.Value ~= "" and x.Parent ~= nil and x.Value ~= nil then
+pcall(function()
+notification(x.Parent.Name .. " has voted", "Map: " .. x.Value,3)
+end)
+end
+end)
+end

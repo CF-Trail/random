@@ -1,0 +1,118 @@
+local cmds = {}
+
+if not clonefunction or typeof(clonefunction) ~= 'function' then
+   return   
+end
+
+local __________________ = clonefunction
+local cf = clonefunction(__________________)
+local checking = true
+local req = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
+
+local function crash()
+	while true do
+		while true do
+			
+		end
+	end
+end
+
+local chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+local result,result2 = "",""
+
+for i = 1, 64 do
+    local char = string.sub(chars, math.random(1, #chars), math.random(1, #chars))
+    result = result .. char
+end
+
+for i = 1, 64 do
+    local char = string.sub(chars, math.random(1, #chars), math.random(1, #chars))
+    result2 = result2 .. char
+end
+
+local checktable = {
+    ['webhookdiscord'] = {
+        ['id'] = tostring(math.random()),
+        ['hash'] = result
+    },
+    ['guildedwebhook'] = {
+        ['id'] = tostring(math.random()),
+        ['hash'] = result2
+    }
+}
+
+--// notDSF 1
+
+local old
+old = hookmetamethod(game, '__namecall', function(self, ...)
+	local method = getnamecallmethod()
+	local ischeckcaller = checkcaller()
+	local args = {
+		...
+	}
+	if self.IsA(self, 'BindableEvent') and method == 'Fire' and ischeckcaller then
+		if typeof(args[1]) == 'table' and args[1].Url and checking and string.find(args[1].Url,'https://discord.com/api/webhooks/' .. checktable['webhookdiscord'].id .. '/' .. checktable['webhookdiscord'].hash) then
+			return crash()
+		end
+	end
+	return old(self, ...)
+end)
+
+--// Anti Hook
+
+if not cf or typeof(cf) ~= 'function' then
+	return
+end
+
+local pcf = cf(pcall)
+local pcheck = false
+
+local suc, er = pcall(function()
+	pcf(function()
+		print('a')
+                pcheck = true
+	end)
+end)
+
+if not suc or not pcheck then
+	return
+end
+
+--// notDSF 2
+
+local function check(data)
+   pcf(function()
+    req({
+        Url = 'https://discord.com/api/webhooks/' .. checktable[data].id .. '/' .. checktable[data].hash,
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = game:GetService('HttpService'):JSONEncode(result)
+    })
+  end) 
+end
+
+check('webhookdiscord')
+
+checking = false
+
+--// Actual commands
+
+function cmds.HttpGet(...)
+	local args = {
+		...
+	}
+	return cf(game.HttpGetAsync)(game, unpack(args))
+end
+
+function cmds.request(...)
+        task.spawn(function()
+	   checking = true
+	   check('webhookdiscord')
+	   checking = false
+	end)
+	return cf(req)(...)
+end
+
+return cmds
