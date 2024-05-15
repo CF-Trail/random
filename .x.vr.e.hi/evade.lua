@@ -178,7 +178,7 @@ function annoydown()
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 3000, 0)
 					task.wait(0.2)
 					game:GetService("ReplicatedStorage").Events.Revive.CarryPlayer:FireServer(holder, true)
-					task.wait(1)
+					task.wait(0.3)
 				end
 			end
 		end
