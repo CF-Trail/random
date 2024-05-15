@@ -1,4 +1,7 @@
 [Evade]
+[5/15/2024]
+[~] Annoy Downed is 5x faster now
+
 [2/18/2023]
 [~] fixed Fast Revive not healing sometimes
 
