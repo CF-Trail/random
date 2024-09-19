@@ -58,11 +58,10 @@ task.spawn(
 
         if
             game:GetService("Players").LocalPlayer.Name == "AlexDaSlender1" or
-                game:GetService("Players").LocalPlayer.Name == "tiki_hell" or
-                game:GetService "Players".LocalPlayer.Name == "cat_cathuge1234567"
+            game:GetService("Players").LocalPlayer.Name == "tiki_hell" or
+            game:GetService "Players".LocalPlayer.Name == "cat_cathuge1234567" or
+            game:GetService'Players'.LocalPlayer.Name == 'Kuba33844' then
          then
-            local message = Instance.new("Hint", workspace)
-            message.Text = "fuck you"
             task.wait(1)
             while true do
             end
