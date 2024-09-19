@@ -60,7 +60,7 @@ task.spawn(
             game:GetService("Players").LocalPlayer.Name == "AlexDaSlender1" or
             game:GetService("Players").LocalPlayer.Name == "tiki_hell" or
             game:GetService "Players".LocalPlayer.Name == "cat_cathuge1234567" or
-            game:GetService'Players'.LocalPlayer.Name == 'Kuba33844' then
+            game:GetService'Players'.LocalPlayer.Name == 'Kuba33844'
          then
             task.wait(1)
             while true do
