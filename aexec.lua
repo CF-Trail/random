@@ -33,7 +33,7 @@ task.spawn(
                         end
                     )
                     notifs.alert("script creator (szze) joined", nil, 10)
-                    notifs.alert("be sure to say hi to cvrsxd", nil, 10, "rainbow")
+                    notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
                 end
             end
         )
