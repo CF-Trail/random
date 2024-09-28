@@ -3,7 +3,7 @@ repeat
 until game:GetService("Players").LocalPlayer
 
 local ids = {
-    5050653591
+    7236670806
 }
 
 local banbypass = {
@@ -52,7 +52,7 @@ task.spawn(
                     end
                 )
                 notifs.alert("script creator (szze) is in the server", nil, 10)
-                notifs.alert("be sure to say hi to cvrsxd", nil, 10, "rainbow")
+                notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
             end
         end
 
