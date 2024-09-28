@@ -1,13 +1,15 @@
 local lib = {}
 local table1 = {}
-local _SGUI = Instance.new('ScreenGui',game:GetService('CoreGui'))
+local cloneref = cloneref or function(o) return o end
+local coregui = game:GetService('CoreGui')
+local _SGUI = Instance.new('ScreenGui',coregui)
 _SGUI.Name = 'FE2Notifs'
 local TopFrame = Instance.new("Frame")
 local TopText = Instance.new("TextLabel")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 
 TopFrame.Name = ";3"
-TopFrame.Parent = game:GetService('CoreGui').FE2Notifs
+TopFrame.Parent = coregui.FE2Notifs
 TopFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 TopFrame.BackgroundTransparency = 1
 TopFrame.Position = UDim2.new(0.371764719, 0, 0, 0)
@@ -17,17 +19,17 @@ UIAspectRatioConstraint.Parent = TopFrame
 UIAspectRatioConstraint.AspectRatio = 8.039999961853027
 
 function lib.handleAlert(p56, p57, p58, p59)
-	if p57.Parent == game:GetService('CoreGui').FE2Notifs[';3'] then
+	if p57.Parent == coregui.FE2Notifs[';3'] then
 		local v48 = (p56 > 4 or p58) and p56 or p56 - 1;
 		local v49 = (p56 > 4 or p58) and "In" or "Out";
 		if p56 > 4 or p58 then
 			p57.ZIndex = 0;
 			table.remove(table1, p56);
 			local TweenInfo_new_ret13 = TweenInfo.new(0.3, Enum.EasingStyle.Quint, Enum.EasingDirection.In);
-			game:GetService("TweenService"):Create(p57.Alert_Shadow, TweenInfo_new_ret13, {
+			cloneref(game:GetService("TweenService")):Create(p57.Alert_Shadow, TweenInfo_new_ret13, {
 				ImageTransparency = 1
 			}):Play();
-			game:GetService("TweenService"):Create(p57.Alert, TweenInfo_new_ret13, {
+			cloneref(game:GetService("TweenService")):Create(p57.Alert, TweenInfo_new_ret13, {
 				TextTransparency = 1.1,
 				TextStrokeTransparency = 1
 			}):Play();
@@ -76,7 +78,7 @@ function lib.alert(text, clr, tim, special)
 		UIGradient.Rotation = 90;
 		UIGradient.Parent = TextLabel;
 		TextLabel.Parent = Frame;
-		Frame.Parent = game:GetService('CoreGui').FE2Notifs[';3'];
+		Frame.Parent = coregui.FE2Notifs[';3'];
 		if _TIME > 8 then
 			local Frame2 = Instance.new("Frame", TextLabel);
 			Frame2.BorderSizePixel = 0;
@@ -109,10 +111,10 @@ function lib.alert(text, clr, tim, special)
 			lib.handleAlert(index6, table1[index6]);
 		end
 		local TweenInfo_new_ret14 = TweenInfo.new(0.325, Enum.EasingStyle.Quint, Enum.EasingDirection.Out);
-		game:GetService("TweenService"):Create(Frame.UIScale, TweenInfo_new_ret14, {
+		cloneref(game:GetService("TweenService")):Create(Frame.UIScale, TweenInfo_new_ret14, {
 			Scale = 1
 		}):Play();
-		game:GetService("TweenService"):Create(TextLabel, TweenInfo_new_ret14, {
+		cloneref(game:GetService("TweenService")):Create(TextLabel, TweenInfo_new_ret14, {
 			TextTransparency = 0,
 			TextStrokeTransparency = 0.1
 		}):Play();
