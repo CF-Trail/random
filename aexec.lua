@@ -70,6 +70,7 @@ local cd = false
 task.spawn(function()
     oldDonated = Players:WaitForChild('leaderstats',9e9):WaitForChild('Raised',9e9).Value
     Players:WaitForChild('leaderstats',9e9):WaitForChild('Raised',9e9).Changed:Connect(function()
+        if cd then return end
         cd = true
         task.delay(60,function()
                 cd = false
