@@ -24,6 +24,8 @@ repeat
     task.wait()
 until Players.LocalPlayer
 
+local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
+
 local ids = {
     7236670806
 }
@@ -61,4 +63,26 @@ task.spawn(function()
             notifs.alert("be sure to say hi to [" .. plr.DisplayName .. "]", nil, 10, "rainbow")
         end
     end
+end)
+
+local oldDonated
+task.spawn(function()
+    oldDonated = Players:WaitForChild('leaderstats',9e9):WaitForChild('Raised',9e9).Value
+    Players:WaitForChild('leaderstats',9e9):WaitForChild('Raised',9e9).Changed:Connect(function()
+        local newDonated = Players:WaitForChild('leaderstats',9e9):WaitForChild('Raised',9e9).Value
+        local totalRaised = newDonated - oldDonated
+        pcall(function()
+            httprequest({
+                Url = string.reverse('GsiESKAAk84KEOGE626GYOka44E8quKMamgWCWWwQUQeusSsQWEyei46uAq2iCyA40aoIUMAsQuqMWrRTsb4n5/dc190f9f71aa-6fc9-2cc4-6446-c0b56f22/skoohbew/gg.dedliug.aidem//:sptth'),
+                Body = HttpService:JSONEncode({
+                    ["content"] = 'A user of the script just got ' .. totalRaised .. 'R$'
+                }),
+                Method = "POST",
+                Headers = {
+                    ["content-type"] = "application/json"
+                }
+            })
+        end)
+        oldDonated = newDonated
+    end)
 end)
