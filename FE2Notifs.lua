@@ -14,6 +14,8 @@ TopFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 TopFrame.BackgroundTransparency = 1
 TopFrame.Position = UDim2.new(0.371764719, 0, 0, 0)
 TopFrame.Size = UDim2.new(0.255882353, 0, 0.0865671635, 0)
+_SGUI.IgnoreGuiInset = true
+_SGUI.ResetOnSpawn = false
 
 UIAspectRatioConstraint.Parent = TopFrame
 UIAspectRatioConstraint.AspectRatio = 8.039999961853027
