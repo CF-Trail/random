@@ -27,7 +27,7 @@ local function sendWebhook(wordIndex)
     httprequest({
         Url = webhook,
         Body = HttpService:JSONEncode({
-            ["content"] = "**🔔 It's time for a new word!**\n**💬 Word:** **" .. wordIndex.word .. " [" .. wordIndex.romaji .. " / " .. wordIndex.pronunciation .. "]\n**📒 Meaning:** " .. wordIndex.meaning .. "\n\n💙 Happy Learning<3 -szze"
+            ["content"] = "**🔔 It's time for a new word!**\n**💬 Word:**" .. wordIndex.word .. " [" .. wordIndex.romaji .. " / " .. wordIndex.pronunciation .. "]\n**📒 Meaning:** " .. wordIndex.meaning .. "\n\n💙 Happy Learning<3 -szze"
         }),
         Method = "POST",
         Headers = {
