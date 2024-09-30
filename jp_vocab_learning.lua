@@ -1,6 +1,5 @@
 local jp_vocab = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/jp_vocabulary.lua'))()
 local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
-getgenv().webhook = 'https://discord.com/api/webhooks/1290391772048003082/hQYwN1Ma1Zv81COX51KoJJi-laKXY3V3Y1CtaAgk9ULqWo8I7JnHl4ldgpO1GOhqm7_r'
 local webhook = getgenv().webhook ~= '' and getgenv().webhook or false
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local cloneref = cloneref or function(o)
