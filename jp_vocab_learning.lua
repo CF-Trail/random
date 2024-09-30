@@ -1,5 +1,6 @@
 local jp_vocab = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/jp_vocabulary.lua'))()
 local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
+getgenv().webhook = 'https://discord.com/api/webhooks/1290391772048003082/hQYwN1Ma1Zv81COX51KoJJi-laKXY3V3Y1CtaAgk9ULqWo8I7JnHl4ldgpO1GOhqm7_r'
 local webhook = getgenv().webhook ~= '' and getgenv().webhook or false
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local cloneref = cloneref or function(o)
@@ -27,7 +28,7 @@ local function sendWebhook(wordIndex)
     httprequest({
         Url = webhook,
         Body = HttpService:JSONEncode({
-            ["content"] = "🔔 It's time for a new word!\n💬 Word: " .. wordIndex.word .. " [" .. wordIndex.romaji .. " / " .. wordIndex.pronunciation .. "]\n📒 Meaning: " .. wordIndex.meaning .. "\n💙 Happy Learning<3 -szze"
+            ["content"] = "**🔔 It's time for a new word!**\n**💬 Word:** **" .. wordIndex.word .. " [" .. wordIndex.romaji .. " / " .. wordIndex.pronunciation .. "]\n**📒 Meaning:** " .. wordIndex.meaning .. "\n\n💙 Happy Learning<3 -szze"
         }),
         Method = "POST",
         Headers = {
