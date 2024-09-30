@@ -46,7 +46,7 @@ local function fetchWord(isForced)
     notifs.alert("💬 Word: " .. tostring(wordIndex.word) .. " [" .. tostring(wordIndex.romaji) .. " / " .. tostring(wordIndex.pronunciation ).. "]",Color3.new(1,1,1),30)
     task.wait(10)
     notifs.alert('📒 Meaning: ' .. tostring(wordIndex.meaning),Color3.new(0.5, 1, 0.5),30)
-    sendWebhook(wordIndex)
+    pcall(sendWebhook, wordIndex)
 end
 
 fetchWord(true)
