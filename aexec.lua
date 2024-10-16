@@ -1,3 +1,4 @@
+task.spawn(function()
 local cloneref = cloneref or function(o) 
     return o 
 end
@@ -37,7 +38,6 @@ local banbypass = {
 }
 
 local notifs
-task.spawn(function()
     notifs = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua"))()
     
     Players.PlayerAdded:Connect(function(plr)
