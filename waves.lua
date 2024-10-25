@@ -92,7 +92,7 @@ if --[[KeySystemUI.Finished() and KeySystemUI.Closed == false]] true then
 			return olds(self, ...)
 		end)
 		local lib = Rayfield:CreateWindow({
-			Name = "WAVES V" .. wavesVer .. " [FE2: V62.73]",
+			Name = "WAVES V" .. wavesVer .. " [FE2: V62.73] | @szze",
 			LoadingTitle = ltitles[math.random(1, #ltitles)],
 			LoadingSubtitle = subs[math.random(1, #subs)],
 		})
