@@ -1,21 +1,12 @@
 if true then
 	repeat task.wait() until game:IsLoaded()
 	local _SL_SUC, ERR = pcall(function()
-		local wavesVer = 2.5
+		local wavesVer = 2.51
 		local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		local sfb30BOK32v0 = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/bktOV03.lua'))()
 		local randomGen = game:GetService('HttpService'):GenerateGUID(false):gsub('-',''):lower()
 		local randomGen2 = game:GetService('HttpService'):GenerateGUID(false):gsub('-',''):lower()
-		local gamepassIds = {
-			4223166,
-			9702661,
-			14432092,
-			14784835,
-			25822678,
-			111099120,
-			141376407,
-			14112023
-		}
+
 		local subs = {
 			'button instatp!!!!',
 			"You're banned for exploiting",
@@ -23,6 +14,7 @@ if true then
 			'im reporting you',
 			'i took a snapshot!'
 		}
+		
 		local ltitles = {
 			'welcome',
 			'welcome'
@@ -551,7 +543,7 @@ if true then
 							break
 						end
 						if (lplr.Character.Humanoid.RootPart.Position - part.Position).Magnitude > 250 or ((lplr.Character.Humanoid.RootPart.Position - part.Position).Magnitude) < -250 then
-							sfb30BOK32v0.cl3C33vbo('b4j09B','Мои глазки на тебе, ты как принцесса Мононоке','Wfu3HG0',nil)
+							sfb30BOK32v0.cl3C33vbo('b4j09B','My Eyes are on You You are like Princess Mononoke','Wfu3HG0',nil)
 							lplr.Character:WaitForChild('HumanoidRootPart').CFrame = CFrame.new(part.Position + Vector3.new(0, 5, 0))
 						end
 					end
