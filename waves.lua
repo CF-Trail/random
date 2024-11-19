@@ -4,6 +4,7 @@ if true then
 		local wavesVer = 2.51
 		local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		local sfb30BOK32v0 = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/bktOV03.lua'))()
+		local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
 		local randomGen = game:GetService('HttpService'):GenerateGUID(false):gsub('-',''):lower()
 		local randomGen2 = game:GetService('HttpService'):GenerateGUID(false):gsub('-',''):lower()
 
@@ -32,13 +33,8 @@ if true then
 		local dvoR3BO2 = sfb30BOK32v0.eo3VO3v0('vk3Vx8',"Surrounded by this Flame")
 
 		local clmain
-		if getsenv and typeof(getsenv) == 'function' then
-                        clmain = getsenv( lplr:WaitForChild('PlayerScripts')["CL_MAIN_GameScript"] )
-                        getgenv().alert = function(text)
-			          clmain.newAlert(text, nil, nil, "rainbow")
-			end
-		else
-		        getgenv().alert = function(text) print(text) end
+		local function alert(text)
+			notifs.alert(text,Color3.new(0.8, 0.498039, 2))
 		end
 
 		for i,v in next, game:GetService('ReplicatedStorage').Remote:GetDescendants() do
