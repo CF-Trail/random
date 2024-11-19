@@ -31,9 +31,14 @@ if true then
 		part.Size = Vector3.new(500, 1, 500)
 		local dvoR3BO2 = sfb30BOK32v0.eo3VO3v0('vk3Vx8',"Surrounded by this Flame")
 
-		local clmain = getsenv( lplr:WaitForChild('PlayerScripts')["CL_MAIN_GameScript"] )
-		local function alert(text)
-			clmain.newAlert(text, nil, nil, "rainbow")
+		local clmain
+		if getsenv and typeof(getsenv) == 'function' then
+                        clmain = getsenv( lplr:WaitForChild('PlayerScripts')["CL_MAIN_GameScript"] )
+                        getgenv().alert = function(text)
+			          clmain.newAlert(text, nil, nil, "rainbow")
+			end
+		else
+		        getgenv().alert = function(text) print(text) end
 		end
 
 		for i,v in next, game:GetService('ReplicatedStorage').Remote:GetDescendants() do
