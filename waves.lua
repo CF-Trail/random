@@ -573,7 +573,7 @@ if true then
 			Name = "WalkSpeed [✅]",
 			Range = {
 				20,
-				26,
+				31,
 			},
 			Increment = 1,
 			CurrentValue = 20,
@@ -586,7 +586,7 @@ if true then
 			Name = "JumpPower [✅]",
 			Range = {
 				50,
-				75
+				100
 			},
 			Increment = 1,
 			CurrentValue = 50,
