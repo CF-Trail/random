@@ -1,7 +1,7 @@
 if true then
 	repeat task.wait() until game:IsLoaded()
 	local _SL_SUC, ERR = pcall(function()
-		local wavesVer = 2.51
+		local wavesVer = 2.52
 		local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		local sfb30BOK32v0 = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/bktOV03.lua'))()
 		local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
@@ -281,6 +281,16 @@ if true then
 			task.wait(5)
 			lplr.Character:WaitForChild('Humanoid').WalkSpeed = getgenv().walkspeed
 			lplr.Character.Humanoid.JumpPower = getgenv().jumppower
+			lplr.Character:WaitForChild('Humanoid'):GetPropertyChangedSignal('WalkSpeed'):Connect(function()
+				if lplr.Character:WaitForChild('Humanoid').WalkSpeed < getgenv().walkspeed then
+					lplr.Character:WaitForChild('Humanoid').WalkSpeed = getgenv().walkspeed
+				end
+			end)
+			lplr.Character:WaitForChild('Humanoid'):GetPropertyChangedSignal('JumpPower'):Connect(function()
+				if lplr.Character:WaitForChild('JumpPower').JumpPower < getgenv().jumppower then
+					lplr.Character:WaitForChild('JumpPower').JumpPower = getgenv().jumppower
+				end
+			end)
 		end)
 		function float()
 			task.spawn(function()
