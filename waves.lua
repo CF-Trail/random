@@ -1,5 +1,3 @@
---crazyblox take me in your devteam 😭😭😭😭 
-
 if true then
 	repeat task.wait() until game:IsLoaded()
 	local _SL_SUC, ERR = pcall(function()
@@ -367,7 +365,6 @@ if true then
 						end
 						task.wait(1.6)
 						ExitRegion.Size = olderegionsize
-						sfb30BOK32v0.eo3VO3v0('b4j09B','I Fly Forward in a Flame Stream I am Rengoku','vk49IVB',nil)
 					end)
 					if not successEND then
 						hrp.Parent:FindFirstChildOfClass('Humanoid'):ChangeState(Enum.HumanoidStateType.Dead)
