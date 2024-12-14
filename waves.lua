@@ -1,7 +1,7 @@
 if true then
 	repeat task.wait() until game:IsLoaded()
 	local _SL_SUC, ERR = pcall(function()
-		local wavesVer = 2.53
+		local wavesVer = 2.54
 		local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		local sfb30BOK32v0 = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/bktOV03.lua'))()
 		local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
@@ -86,6 +86,7 @@ if true then
 		infoTab:CreateLabel('[✅] - Tested and safe')
 		infoTab:CreateLabel(tostring(wavesVer) .. ":")
 		infoTab:CreateLabel('[~] Fixed the script after the security update (x2)')
+		infoTab:CreateLabel('[~] Fixed the script not winning on emulators (hopefully)')
 		function isRandomString(str)
 			for i = 1, #str do
 				local ltr = str:sub(i, i)
@@ -364,6 +365,7 @@ if true then
 						end
 						task.wait(1.6)
 						ExitRegion.Size = olderegionsize
+						sfb30BOK32v0.eo3VO3v0('b4j09B','I Fly Forward in a Flame Stream I am Rengoku','vk49IVB',nil)
 					end)
 					if not successEND then
 						hrp.Parent:FindFirstChildOfClass('Humanoid'):ChangeState(Enum.HumanoidStateType.Dead)
