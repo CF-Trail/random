@@ -1,7 +1,7 @@
 if true then
 	repeat task.wait() until game:IsLoaded()
 	local _SL_SUC, ERR = pcall(function()
-		local wavesVer = 2.52
+		local wavesVer = 2.53
 		local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		local sfb30BOK32v0 = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/bktOV03.lua'))()
 		local notifs = loadstring(game:HttpGet('https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua'))()
@@ -59,7 +59,7 @@ if true then
 			return olds(self, ...)
 		end)
 		local lib = Rayfield:CreateWindow({
-			Name = "WAVES V" .. wavesVer .. " [FE2: V62.82]",
+			Name = "WAVES V" .. wavesVer .. " [FE2: V63.01]",
 			LoadingTitle = ltitles[math.random(1, #ltitles)],
 			LoadingSubtitle = subs[math.random(1, #subs)],
 		})
@@ -84,8 +84,8 @@ if true then
 		local challengeTab = lib:CreateTab("Challenges")
 		infoTab:CreateLabel('[⚠️/x] - where x is chance of getting anticheated')
 		infoTab:CreateLabel('[✅] - Tested and safe')
-		infoTab:CreateLabel("V2.5:")
-		infoTab:CreateLabel('[~] Fixed the script after the security update')
+		infoTab:CreateLabel(tostring(wavesVer) .. ":")
+		infoTab:CreateLabel('[~] Fixed the script after the security update (x2)')
 		function isRandomString(str)
 			for i = 1, #str do
 				local ltr = str:sub(i, i)
@@ -156,43 +156,6 @@ if true then
 				end
 			end
 		end)
-		local function decimalRandom(minimum, maximum)
-			return math.random() * (maximum - minimum) + minimum
-		end
-		local Synced = true
-		local RootPart, RootClone
-		local function desync()
-			local Char = lplr.Character
-			if Synced == true and Char then
-				Synced = false
-        --desync rootpart
-				Char.Parent = game:GetService('ReplicatedStorage')
-				RootPart = Char.HumanoidRootPart
-				RootPart.CFrame = RootPart.CFrame
-				RootPart.Transparency = 0
-				RootPart.RootJoint.Enabled = false
-				RootClone = RootPart:Clone()
-				RootClone.CFrame = RootClone.CFrame
-				RootClone.Transparency = 1
-				RootClone.Parent = Char
-				Char.PrimaryPart = RootClone
-				RootClone.RootJoint.Enabled = true
-				Char.Parent = workspace
-			end
-		end
-		local function sync()
-			local Char = lplr.Character
-			if Synced == false and Char then
-				Synced = true
-				Char.Parent = game:GetService('ReplicatedStorage')
-				RootPart.CFrame = RootClone.CFrame
-				RootClone.Parent = nil
-				RootPart.Parent = Char
-				Char.PrimaryPart = RootPart
-				RootPart.RootJoint.Enabled = true
-				Char.Parent = workspace
-			end
-		end
 		function fetchZipline()
 			if workspace.Multiplayer:FindFirstChild('Map') then
 				local isZipline, ziplinePart
@@ -573,7 +536,7 @@ if true then
 			Name = "WalkSpeed [✅]",
 			Range = {
 				20,
-				31,
+				26,
 			},
 			Increment = 1,
 			CurrentValue = 20,
@@ -586,7 +549,7 @@ if true then
 			Name = "JumpPower [✅]",
 			Range = {
 				50,
-				100
+				75
 			},
 			Increment = 1,
 			CurrentValue = 50,
