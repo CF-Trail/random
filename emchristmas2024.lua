@@ -208,7 +208,7 @@ while task.wait(5) do
         end
     end
     if currentquest > 7 then
-        webhook('All done<3*\n*https://scriptblox.com/u/dotgg*\n*https://cdn.discordapp.com/attachments/1283435609863618621/1318638721146552370/video_2024-11-03_10-17-17_1.mp4')
+        webhook('All done<3*\n*https://scriptblox.com/u/dotgg*\nhttps://cdn.discordapp.com/attachments/1283435609863618621/1318638721146552370/video_2024-11-03_10-17-17_1.mp4\n*<3')
         task.wait(5)
         webhook('Meanwhile, I\'m gonna start Bauble farming for the winter items, while you rest. It autobuys the items too!')
         task.wait(3)
