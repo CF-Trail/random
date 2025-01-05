@@ -1,8 +1,14 @@
-if not rconsoleprint or not hookmetamethod or not hookfunction then
+if or not hookmetamethod or not hookfunction then
 	repeat
 		task.wait()
 	until game:GetService('Players').LocalPlayer
 	game:GetService('Players').LocalPlayer:Kick('Bad executor')
+end
+
+if not rconsoleprint then
+	rconsoleprint = function(...)
+		print(...)
+	end
 end
 
 if not newcclosure then
