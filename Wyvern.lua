@@ -1894,7 +1894,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 pcall(
                                     function()
                                         stealth_call(
-                                            "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
+                                            "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService(\"Players\").LocalPlayer.UserId, " ..
                                                 product .. ", true) "
                                         )
                                     end
@@ -1911,7 +1911,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
+                                        "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService(\"Players\").LocalPlayer.UserId, " ..
                                             product .. ", true) "
                                     )
                                 end
@@ -1948,7 +1948,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                     pcall(
                                         function()
                                             stealth_call(
-                                                "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
+                                                "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService(\"Players\").LocalPlayer.UserId, " ..
                                                     product .. ", true) "
                                             )
                                         end
@@ -1979,7 +1979,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                         pcall(
                                             function()
                                                 stealth_call(
-                                                    "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
+                                                    "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService(\"Players\").LocalPlayer.UserId, " ..
                                                         product .. ", true) "
                                                 )
                                             end
@@ -2026,7 +2026,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptGamePassPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
+                                        "MarketplaceService:SignalPromptGamePassPurchaseFinished(game:GetService(\"Players\").LocalPlayer, " ..
                                             tostring(gamepass) .. ", true)"
                                     )
                                 end
@@ -2073,7 +2073,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
+                                        "MarketplaceService:SignalPromptPurchaseFinished(game:GetService(\"Players\").LocalPlayer, " ..
                                             tt ..
                                                 ", false) MarketplaceService:SignalPromptPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
                                                     tt .. ", " .. tostring(returnvalprompt) ")"
