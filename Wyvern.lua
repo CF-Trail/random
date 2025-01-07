@@ -66,7 +66,14 @@ local wyvernsuccess,wyvernerror = pcall(function()
     local NetworkSettings = settings().Network
     local UserGameSettings = UserSettings():GetService("UserGameSettings")
     getrenv().getgenv = clonefunction(getgenv)
-        
+    
+    local message = Instance.new("Message")
+    message.Text = "loading wyvern (maintained by redblue) / non-stealer ver"
+    message.Name = "a1wfe"
+    message.Parent = CoreGui
+    
+    task.wait(0.1)
+    
     getgenv().stealth_call = function(script)
         getrenv()._set = clonefunction(setthreadidentity)
         local old
@@ -221,32 +228,32 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             task.spawn(
                                 function()
                                     if
-                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild(
+                                        game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild(
                                             "Prompt"
                                         ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild(
                                                 "AlertContents"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
                                                 "Footer"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
                                                 "Buttons"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
                                                 "2"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
                                                 2
                                             ]:FindFirstChild("ButtonContent").ButtonMiddleContent and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
                                                 2
                                             ]:FindFirstChild("ButtonContent").ButtonMiddleContent:FindFirstChildOfClass(
                                                 "TextLabel"
                                             )
                                      then
                                         local yes =
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
                                             2
                                         ].AbsolutePosition
                                         game:GetService("VirtualInputManager"):SendMouseButtonEvent(
@@ -283,29 +290,29 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             task.spawn(
                                 function()
                                     if
-                                        game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild(
+                                        game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator:FindFirstChild(
                                             "Prompt"
                                         ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt:FindFirstChild(
                                                 "AlertContents"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents:FindFirstChild(
                                                 "Footer"
                                             ) and
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer:FindFirstChild(
                                                 "Buttons"
                                             ) and
-                                            not game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
+                                            not game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
                                                 "2"
                                             )
                                      then
                                         if
-                                            game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
+                                            game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons:FindFirstChild(
                                                 "1"
                                             )
                                          then
                                             local ye12s =
-                                                game.CoreGui.PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
+                                                game:GetService("CoreGui").PurchasePrompt.ProductPurchaseContainer.Animator.Prompt.AlertContents.Footer.Buttons[
                                                 1
                                             ].AbsolutePosition
                                             game:GetService("VirtualInputManager"):SendMouseButtonEvent(
@@ -496,7 +503,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                                                                                         ) ..
                                                                                                             '","expectedPurchaserType":"User","expectedPurchaserId":' ..
                                                                                                                 tostring(
-                                                                                                                    game.Players.LocalPlayer.UserId
+                                                                                                                    game:GetService("Players").LocalPlayer.UserId
                                                                                                                 ) ..
                                                                                                                     "}"
                                                             print(data)
@@ -620,13 +627,13 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                                     redblueee = {...}
                                                     local assetId = redblueee[2]
                                                     game:GetService("MarketplaceService"):SignalPromptPurchaseFinished(
-                                                        game.Players.LocalPlayer,
+                                                        game:GetService("Players").LocalPlayer,
                                                         tonumber(assetId),
                                                         false
                                                     )
                                                     task.wait(0.25)
                                                     game:GetService("MarketplaceService"):SignalPromptPurchaseFinished(
-                                                        game.Players.LocalPlayer,
+                                                        game:GetService("Players").LocalPlayer,
                                                         tostring(assetId),
                                                         false
                                                     ) -- some games have inproper checks
@@ -819,7 +826,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                                                                     tostring(info.Creator.CreatorType) ..
                                                                                         '","expectedPurchaserType":"User","expectedPurchaserId":' ..
                                                                                             tostring(
-                                                                                                game.Players.LocalPlayer.UserId
+                                                                                                game:GetService("Players").LocalPlayer.UserId
                                                                                             ) ..
                                                                                                 "}"
                                         print(data)
@@ -904,7 +911,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                                                                         tostring(info.Creator.CreatorType) ..
                                                                                             '","expectedPurchaserType":"User","expectedPurchaserId":' ..
                                                                                                 tostring(
-                                                                                                    game.Players.LocalPlayer.UserId
+                                                                                                    game:GetService("Players").LocalPlayer.UserId
                                                                                                 ) ..
                                                                                                     "}"
     
@@ -1104,15 +1111,15 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 }
                                 fire(argumentss, true)
                             elseif getgenv().RemoteFireMethod == "LocalPlayer" then
-                                fire(game.Players.LocalPlayer, true)
+                                fire(game:GetService("Players").LocalPlayer, true)
                             elseif getgenv().RemoteFireMethod == "Your Username" then
-                                fire(tostring(game.Players.LocalPlayer), true)
+                                fire(tostring(game:GetService("Players").LocalPlayer), true)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID" then
                                 fire(id, true)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID, LocalPlayer" then
-                                _fire(id, game.Players.LocalPlayer, true)
+                                _fire(id, game:GetService("Players").LocalPlayer, true)
                             elseif getgenv().RemoteFireMethod == "LocalPlayer, UGC Item ID" then
-                                _fire(game.Players.LocalPlayer, id, true)
+                                _fire(game:GetService("Players").LocalPlayer, id, true)
                             elseif getgenv().RemoteFireMethod == "'UGC' as a string" then
                                 fire("UGC", true)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID, 'true' boolean" then
@@ -1121,14 +1128,14 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 fire(true, true)
                             elseif getgenv().RemoteFireMethod == "literal lua code to prompt item" then
                                 fire(
-                                    'game:GetService("MarketplaceService"):PromptPurchase(game.Players.' ..
-                                        tostring(game.Players.LocalPlayer) .. ", " .. tostring(id) .. ")",
+                                    'game:GetService("MarketplaceService"):PromptPurchase(game:GetService("Players").' ..
+                                        tostring(game:GetService("Players").LocalPlayer) .. ", " .. tostring(id) .. ")",
                                     true
                                 )
                             elseif getgenv().RemoteFireMethod == "loadstring prompt item" then
                                 fire(
-                                    'loadstring(`game:GetService("MarketplaceService"):PromptPurchase(game.Players.' ..
-                                        tostring(game.Players.LocalPlayer) .. ", " .. tostring(id) .. ")`)()",
+                                    'loadstring(`game:GetService("MarketplaceService"):PromptPurchase(game:GetService("Players").' ..
+                                        tostring(game:GetService("Players").LocalPlayer) .. ", " .. tostring(id) .. ")`)()",
                                     true
                                 )
                             end
@@ -1175,15 +1182,15 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 }
                                 fire(argumentss, false)
                             elseif getgenv().RemoteFireMethod == "LocalPlayer" then
-                                fire(game.Players.LocalPlayer, false)
+                                fire(game:GetService("Players").LocalPlayer, false)
                             elseif getgenv().RemoteFireMethod == "Your Username" then
-                                fire(tostring(game.Players.LocalPlayer), false)
+                                fire(tostring(game:GetService("Players").LocalPlayer), false)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID" then
                                 fire(id, false)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID, LocalPlayer" then
-                                _fire(id, game.Players.LocalPlayer, false)
+                                _fire(id, game:GetService("Players").LocalPlayer, false)
                             elseif getgenv().RemoteFireMethod == "LocalPlayer, UGC Item ID" then
-                                _fire(game.Players.LocalPlayer, id, false)
+                                _fire(game:GetService("Players").LocalPlayer, id, false)
                             elseif getgenv().RemoteFireMethod == "'UGC' as a string" then
                                 fire("UGC", false)
                             elseif getgenv().RemoteFireMethod == "UGC Item ID, 'true' boolean" then
@@ -1192,14 +1199,14 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 fire(true, false)
                             elseif getgenv().RemoteFireMethod == "literal lua code to prompt item" then
                                 fire(
-                                    'game:GetService("MarketplaceService"):PromptPurchase(game.Players.' ..
-                                        tostring(game.Players.LocalPlayer) .. ", " .. tostring(id) .. ")",
+                                    'game:GetService("MarketplaceService"):PromptPurchase(game:GetService("Players").' ..
+                                        tostring(game:GetService("Players").LocalPlayer) .. ", " .. tostring(id) .. ")",
                                     false
                                 )
                             elseif getgenv().RemoteFireMethod == "loadstring prompt item" then
                                 fire(
-                                    'loadstring(`game:GetService("MarketplaceService"):PromptPurchase(game.Players.' ..
-                                        tostring(game.Players.LocalPlayer) .. ", " .. tostring(id) .. ")`)()",
+                                    'loadstring(`game:GetService("MarketplaceService"):PromptPurchase(game:GetService("Players").' ..
+                                        tostring(game:GetService("Players").LocalPlayer) .. ", " .. tostring(id) .. ")`)()",
                                     false
                                 )
                             end
@@ -1426,9 +1433,9 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                     )
                                 end
                             )
-                            TeleportService:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
+                            TeleportService:TeleportToPlaceInstance(_place, Server.id, game:GetService("Players").LocalPlayer)
                         else
-                            TeleportService:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
+                            TeleportService:TeleportToPlaceInstance(_place, Server.id, game:GetService("Players").LocalPlayer)
                         end
                     end
                 )
@@ -1492,7 +1499,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                         usernames[username] = nil
                                     end
                                 end
-                                local models = game.Workspace:GetChildren()
+                                local models = workspace:GetChildren()
                                 for _, model in ipairs(models) do
                                     if model:IsA("Model") then
                                         if usernames[model.Name] then
@@ -1887,7 +1894,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                 pcall(
                                     function()
                                         stealth_call(
-                                            "MarketplaceService:SignalPromptProductPurchaseFinished(game.Players.LocalPlayer.UserId, " ..
+                                            "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
                                                 product .. ", true) "
                                         )
                                     end
@@ -1904,7 +1911,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptProductPurchaseFinished(game.Players.LocalPlayer.UserId, " ..
+                                        "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
                                             product .. ", true) "
                                     )
                                 end
@@ -1941,7 +1948,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                     pcall(
                                         function()
                                             stealth_call(
-                                                "MarketplaceService:SignalPromptProductPurchaseFinished(game.Players.LocalPlayer.UserId, " ..
+                                                "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
                                                     product .. ", true) "
                                             )
                                         end
@@ -1972,7 +1979,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                         pcall(
                                             function()
                                                 stealth_call(
-                                                    "MarketplaceService:SignalPromptProductPurchaseFinished(game.Players.LocalPlayer.UserId, " ..
+                                                    "MarketplaceService:SignalPromptProductPurchaseFinished(game:GetService("Players").LocalPlayer.UserId, " ..
                                                         product .. ", true) "
                                                 )
                                             end
@@ -2019,7 +2026,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptGamePassPurchaseFinished(game.Players.LocalPlayer, " ..
+                                        "MarketplaceService:SignalPromptGamePassPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
                                             tostring(gamepass) .. ", true)"
                                     )
                                 end
@@ -2066,9 +2073,9 @@ local wyvernsuccess,wyvernerror = pcall(function()
                             pcall(
                                 function()
                                     stealth_call(
-                                        "MarketplaceService:SignalPromptPurchaseFinished(game.Players.LocalPlayer, " ..
+                                        "MarketplaceService:SignalPromptPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
                                             tt ..
-                                                ", false) MarketplaceService:SignalPromptPurchaseFinished(game.Players.LocalPlayer, " ..
+                                                ", false) MarketplaceService:SignalPromptPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
                                                     tt .. ", " .. tostring(returnvalprompt) ")"
                                     )
                                 end
