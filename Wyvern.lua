@@ -66,14 +66,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
     local NetworkSettings = settings().Network
     local UserGameSettings = UserSettings():GetService("UserGameSettings")
     getrenv().getgenv = clonefunction(getgenv)
-    
-    local message = Instance.new("Message")
-    message.Text = "loading wyvern (maintained by redblue) / non-stealer ver"
-    message.Name = "a1wfe"
-    message.Parent = CoreGui
-    
-    task.wait(0.1)
-    
+        
     getgenv().stealth_call = function(script)
         getrenv()._set = clonefunction(setthreadidentity)
         local old
