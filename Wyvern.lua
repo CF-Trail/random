@@ -2127,22 +2127,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                 purchase:Seperator()
             end
             getgenv().WyvernLoaded = true
-    
             getgenv().WyvernConfig = nil
-            pcall(
-                function()
-                    if message.Text ~= "loading wyvern (maintained by redblue)" then
-                        game.Players.LocalPlayer:Kick()
-                        task.spawn(
-                            function()
-                                task.wait(10)
-                                game.Players.LocalPlayer:remove()
-                            end
-                        )
-                    end
-                    message:Destroy()
-                end
-            )
     
             local adonisFound = false
     
