@@ -2075,7 +2075,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
                                     stealth_call(
                                         "MarketplaceService:SignalPromptPurchaseFinished(game:GetService(\"Players\").LocalPlayer, " ..
                                             tt ..
-                                                ", false) MarketplaceService:SignalPromptPurchaseFinished(game:GetService("Players").LocalPlayer, " ..
+                                                ", false) MarketplaceService:SignalPromptPurchaseFinished(game:GetService(\"Players\").LocalPlayer, " ..
                                                     tt .. ", " .. tostring(returnvalprompt) ")"
                                     )
                                 end
