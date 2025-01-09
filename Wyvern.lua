@@ -124,7 +124,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
     
     task.spawn(
         function()
-            local discord = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord"))()
+            local discord = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/refs/heads/main/discordlib.lua"))()
             local win =
                 discord:Window("Wyvern " .. getgenv().wyvern_version .. " - redblues edition")
             local serv = win:Server("Wyvern", "http://www.roblox.com/asset/?id=6031075938")
