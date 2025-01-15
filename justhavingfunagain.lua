@@ -50,22 +50,20 @@ local lyrics = {
 }
 
 for i,v in next, game:GetService('Players'):GetPlayers() do
-    task.spawn(function()
-        for _i, lyr in next, lyrics do
-            if lyr[1] == 'skip' then
-                print('skipping')
-                task.wait(lyr[2])
-                continue
-            end
-            local resp = game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId,lyr[1])
-            if typeof(resp) == 'table' then
-                resp = unpack(resp)
-            end
-            print(tostring(resp))
+    for _i, lyr in next, lyrics do
+        if lyr[1] == 'skip' then
+            print('skipping')
             task.wait(lyr[2])
-            if lyr[2] == 0 then
-                break
-            end
+            continue
         end
-    end)
+        local resp = game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId,lyr[1])
+        if typeof(resp) == 'table' then
+            resp = unpack(resp)
+        end
+        print(tostring(resp))
+        task.wait(lyr[2])
+        if lyr[2] == 0 then
+            break
+        end
+    end
 end
