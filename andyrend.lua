@@ -50,6 +50,7 @@ local lyrics = {
 }
 
 for i,v in next, game:GetService('Players'):GetPlayers() do
+    warn(v.Name)
     for _i, lyr in next, lyrics do
         if lyr[1] == 'skip' then
             print('skipping')
