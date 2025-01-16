@@ -1,7 +1,7 @@
 local lyrics = {
     {"Andy Rend",4},
     {"(Huh, ah)",1}, -- 14.6
-    {" My style's a tsunami, puts fear on you (A-ha)",4.4}, -- 18
+    {"My style's a tsunami, puts fear on you (A-ha)",4.4}, -- 18
     {"Got a bunch of blades, blade of tears, yeah,", 3.3}, -- 21.3
     {"My run's like shukuchi, with tears in the gear,",3.5}, -- 24.8
     {"Got a bunch of blades, blade of tears, yeah.",3.1}, -- 27.9
@@ -14,7 +14,7 @@ local lyrics = {
     {"Died, and they all shout: 'die-die-die'", 1.6}, -- 35.9
     {"Blood-pattern daggers, fly-fly-fly", 1.7}, -- 37.6
     {"Crying katanas, by my side", 1.9}, -- 39.5
-    {"Road to the sky (Ah, cursed)", 1.7}, -- 41.2
+    {"Road to sky (Ah, cursed)", 1.7}, -- 41.2
     
     {"Blade of tears, I'm fallen", 1.7}, -- 42.9
     {"My kicks Rick and Owens", 1.9}, -- 44.8
