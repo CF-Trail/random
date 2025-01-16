@@ -46,7 +46,7 @@ local lyrics = {
     
     {"I didn't forget, be quiet-quiet", 2}, -- 1m32.8
     {"Changed the time, switched the vibe", 1.8}, -- 1m34.6
-    {"####### are looking overtime, uh", 0},
+    {"####### are looking overtime, uh", 3.31},
 }
 
 for i,v in next, game:GetService('Players'):GetPlayers() do
@@ -67,7 +67,7 @@ for i,v in next, game:GetService('Players'):GetPlayers() do
             break
         end
         task.wait(lyr[2])
-        if lyr[2] == 0 then
+        if lyr[2] == 3.31 then
             break
         end
     end
