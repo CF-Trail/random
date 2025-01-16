@@ -60,7 +60,7 @@ for i,v in next, game:GetService('Players'):GetPlayers() do
         if typeof(resp) == 'table' then
             resp = unpack(resp)
         end
-        print(tostring(resp))
+        print(tostring(resp) .. ': ' .. lyr[1])
         if resp == false then
             warn('Skipping - blocked')
             break
