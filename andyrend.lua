@@ -88,6 +88,7 @@ for i, v in next, game:GetService("Players"):GetPlayers() do
     warn(v.Name)
     local songLyrics, songName = pickRandomSong()
     game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId, 'Congratulations! Your song is: ' .. songName)
+    task.wait(2)
     for _i, lyr in next, songLyrics do
         if lyr[1] == 'skip' then
             print('skipping')
