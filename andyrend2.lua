@@ -70,7 +70,24 @@ local lyrics = {
         {'There\'s bloody fogs nearby', 1.9}, -- 32
         {'I\'m feeling the bloodrage', 2.1}, -- 34.1
         {'Ah, ah, bloodrage', 3}, -- 35.9
-        {'On me bloodlust',3.31}
+        {'On me bloodlust', 3.31}
+    },
+    ['Deadline'] = {
+        {'Redline', 1}, -- 2.4s,
+        {'Digitality timer - my deadline', 1.5}, -- 3.9s
+        {'Spinning bayonet - that\'s my showtime', 1.3}, -- 5.2s
+        {'Pitch black darkness - Bedlam Redline', 1.9}, -- 7.1s
+        {'200 miles per hour, riding a Subaru', 1.7}, -- 8.8s
+        {'On my berettas my skin - Louis Prada', 1.5}, -- 10.3s
+        {'Choosing the flame throw, I have a katana', 1.6}, -- 11.9
+        {'Neon Revolution, choose a card', 1.6}, -- 13.5
+        {'Kimono, Susanoo, load up two berettas - melodrama', 2.2}, -- 15.7
+        {'You take too little; these skins you get for frags', 1.4}, -- 17.1
+        {'Yup, I got a new Azimov, I do X\'ses - doppelganger', 1.5}, -- 18.6
+        {'Hero got hid himself a supra, I choose lancer', 1.9}, -- 20.5
+        {'Handing me a bonus, that\'s a new banner', 1.3}, -- 21.8
+        {'Blue Benz, call it runner', 1.3}, -- 23.1
+        {'I\'m avoiding losses, you call me mancer', 3.31},
     }
 }
 
