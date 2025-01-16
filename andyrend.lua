@@ -71,4 +71,5 @@ for i,v in next, game:GetService('Players'):GetPlayers() do
             break
         end
     end
+    task.wait(2)
 end
