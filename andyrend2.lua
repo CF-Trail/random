@@ -87,14 +87,14 @@ local lyrics = {
         {'Hero got hid himself a supra, I choose lancer', 1.9}, -- 20.5
         {'Handing me a bonus, that\'s a new banner', 1.3}, -- 21.8
         {'Blue Benz, call it runner', 1.3}, -- 23.1
-        {'I\'m avoiding losses, you call me mancer', 3.31},
+        {'I\'m avoiding losses, you can call me mancer', 3.31},
     },
     ['lyin n dyin'] = {
         {'Lying n\' dying, I\'m going silent', 3.5}, -- 3.5s
         {'Numbers on dialin\', I am spying on all of your loss-', 4.5}, -- 8s,
         {'Uh, cursed world, chained ghost shot in the whirl', 3}, -- 11s
         {'It\'s a trip to my Paris, hazards on the Spyder Porsche', 3.6}, -- 14.6
-        {'We\'re on sundown, lenses Yves Saint Laurent', 2.4}, -- 18s
+        {'We\'re on sundown, my lenses Yves Saint Laurent', 2.4}, -- 18s
         {'But I just broke the plan, all my thoughts so high', 3.31}
     },
     ['wake up'] = {
@@ -110,6 +110,51 @@ local lyrics = {
         {'New gen brought a walk, very slow-mo flow', 3.3}, -- 52.8s
         {'Silence, whisper p2p is on my balance, balances', 5}, -- 57.8s
         {'New gen, private jet, you just had no chances', 3.31}
+    },
+    ['mana break'] = {
+        {'Mana Break', 1}, -- 16.2s
+        {'Sparks are beneath me, taking dissimilate', 2}, -- 18.2s
+        {'Mana Break', 0.8}, -- 19s
+        {'Color of my hits became frozen sphere', 2}, -- 21s
+        {'Mana Break slices through you anyway', 1.9}, -- 22.9s
+        {'Girl is like in anime', 1}, -- 23.9s
+        {'Eyes just like Rinnedan', 1}, -- 24.9s
+        {'You have a blindfold styled Dark Illidan', 1.9}, -- 26.8s
+        {'I have no name, blades my motivation', 1.9}, -- 28.7s
+        {'You run up on the blades and get elimination', 1.9}, -- 30.6s
+        {'Spinning this girl like a beyblade', 1.4}, -- 32s
+        {'In my head delay, hey', 1.3}, -- 33.3s
+        {'Mana Void Disable, hey-hey', 1.3}, -- 34.6s
+        {'In my head delay, hey', 1.7}, -- 35.3s
+        {'Consuming the mana', 1.5}, -- 36.8s
+        {'Centipedes on the screen, they fill up my wound', 2}, -- 38.8s
+        {'I just pressed manta manta, we just split in two, I take my katana', 2.4}, -- 41.2s
+        {'360, turning my head back', 1.5}, -- 42.7
+        {'I just flew 3 miles, god knows where am I? Where am I? Where am I? (Uh-huh)', 3.3}, -- 46s
+        {'Mana Break', 1}, -- 16.2s
+        {'Sparks are beneath me, taking dissimilate', 2}, -- 18.2s
+        {'Mana Break', 0.8}, -- 19s
+        {'Color of my hits became frozen sphere', 2}, -- 21s
+        {'Mana Break slices through you anyway', 1.9}, -- 22.9s/53.6
+        {'In a flow of pain, always hikikomori kai', 1.7}, -- 55.3s
+        {'In a blood of shadow kage, please write \'Let me die\'', 2.1}, -- 57.4s
+        {'Standing in amulet, I don\'t want to leave this sky', 1.8}, -- 59.2s
+        {'I am chained, and my chain said \'Fly\'', 1.6}, -- 60.8s
+        {'Chains-chains-chains, the defeat is always lethal', 1.9}, -- 62.7
+        {'And so are your comments \'bout me, they so ungleeful', 1.8}, -- 64.5
+        {'You only think about comets', 1.1}, -- 65.6
+        {'Chains-chains-chains, your manapool is on your target', 1.9}, -- 67.5
+        {'And my spheres melting, and my blades have darkened', 3.4}, -- 70.9s,
+        {'Mana Break', 1}, -- 16.2s
+        {'Sparks are beneath me, taking dissimilate', 2}, -- 18.2s
+        {'Mana Break', 0.8}, -- 19s
+        {'Color of my hits became frozen sphere', 2}, -- 21s
+        {'Mana Break slices through you anyway', 1.9}, -- 22.9s/53.6
+        {'Chains-chains-chains, the defeat is always lethal', 1.9}, -- 62.7
+        {'And so are your comments \'bout me, they so ungleeful', 1.8}, -- 64.5
+        {'You only think about comets', 1.1}, -- 65.6
+        {'Chains-chains-chains, your manapool is on your target', 1.9}, -- 67.5
+        {'And my spheres melting, and my blades have darkened', 3.4}, -- 70.9s,
     }
 }
 
@@ -123,30 +168,32 @@ function pickRandomSong()
     return lyrics[chosenSong], chosenSong
 end
 
-for i, v in next, game:GetService("Players"):GetPlayers() do
-    warn(v.Name)
-    local songLyrics, songName = pickRandomSong()
-    game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId, 'Congratulations! Your song is: ' .. songName)
-    task.wait(5)
-    for _i, lyr in next, songLyrics do
-        if lyr[1] == 'skip' then
-            print('skipping')
+while task.wait() do
+    for i, v in next, game:GetService("Players"):GetPlayers() do
+        warn(v.Name)
+        local songLyrics, songName = pickRandomSong()
+        game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId, 'Congratulations! Your song is: ' .. songName)
+        task.wait(5)
+        for _i, lyr in next, songLyrics do
+            if lyr[1] == 'skip' then
+                print('skipping')
+                task.wait(lyr[2])
+                continue
+            end
+            local resp = game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId, lyr[1])
+            if typeof(resp) == 'table' then
+                resp = unpack(resp)
+            end
+            print(tostring(resp) .. ': ' .. lyr[1])
+            if resp == false then
+                warn('Skipping - blocked')
+                break
+            end
             task.wait(lyr[2])
-            continue
+            if lyr[2] == 3.31 then
+                break
+            end
         end
-        local resp = game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SendMessage"):InvokeServer(v.UserId, lyr[1])
-        if typeof(resp) == 'table' then
-            resp = unpack(resp)
-        end
-        print(tostring(resp) .. ': ' .. lyr[1])
-        if resp == false then
-            warn('Skipping - blocked')
-            break
-        end
-        task.wait(lyr[2])
-        if lyr[2] == 3.31 then
-            break
-        end
+        task.wait(2)
     end
-    task.wait(2)
 end
