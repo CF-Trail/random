@@ -88,6 +88,28 @@ local lyrics = {
         {'Handing me a bonus, that\'s a new banner', 1.3}, -- 21.8
         {'Blue Benz, call it runner', 1.3}, -- 23.1
         {'I\'m avoiding losses, you call me mancer', 3.31},
+    },
+    ['lyin n dyin'] = {
+        {'Lying n\' dying, I\'m going silent', 3.5}, -- 3.5s
+        {'Numbers on dialin\', I am spying on all of your loss-', 4.5}, -- 8s,
+        {'Uh, cursed world, chained ghost shot in the whirl', 3}, -- 11s
+        {'It\'s a trip to my Paris, hazards on the Spyder Porsche', 3.6}, -- 14.6
+        {'We\'re on sundown, lenses Yves Saint Laurent', 2.4}, -- 18s
+        {'But I just broke the plan, all my thoughts so high', 3.31}
+    },
+    ['wake up'] = {
+        {'You. Me.', 1.7}, -- 4.7
+        {'Believe in deagle, got the stack', 1.7}, -- 6.4
+        {'Owls sleep at nights - squad', 1.8}, -- 8.2s
+        {'Soul clench - equip E-Scar now', 1.6}, -- 9.8s
+        {'Don\'t forget I give you shine', 1.8}, -- 11.6s
+        {'Slow drive feel high', 1.7}, -- 13.3s
+        {'Wake up everybody now', 1.7}, -- 15s/46s,
+        {'Wake u-u-u-p', 1.8}, -- 47.8
+        {'Balenci, balenci', 1.7}, -- 49.5s
+        {'New gen brought a walk, very slow-mo flow', 3.3}, -- 52.8s
+        {'Silence, whisper p2p is on my balance, balances', 5}, -- 57.8s
+        {'New gen, private jet, you just had no chances', 3.31}
     }
 }
 
