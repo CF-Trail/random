@@ -3,6 +3,9 @@ local webhookset = getgenv().webhook_setting
 local remote = game:GetService("ReplicatedStorage"):WaitForChild('questStuff'):WaitForChild('questRemote')
 local spawnremote = game:GetService("ReplicatedStorage"):WaitForChild('spawnItem')
 local lplr = game:GetService('Players').LocalPlayer
+do
+   return lplr:Kick('good morning sleepyhead christmas 2024 ended')
+end
 local plrgui = lplr.PlayerGui.GameGui.Objectives.ScrollingFrame
 local npc = workspace:WaitForChild('Lobby').QuestStuff.NPCs.Elf.HumanoidRootPart.promptTalk
 local rewardpath = workspace.Lobby.QuestStuff.Sets.GiftGlobe.core.promptInteract
