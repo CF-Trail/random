@@ -1,8 +1,8 @@
 return {
-    ['la vacca saturno saturnita'] = '$0.60',
-    ['graipuss medussi'] = '$1.12',
-    ['los tralaleritos'] = '$0.71',
-    ['la grande combinasion'] = '$5.51',
-    ['sammyni spyderini'] = '$0.40',
-    ['garama and madundung'] = '$104'
+    ['la vacca saturno saturnita'] = '$0.45',
+    ['graipuss medussi'] = '$0.97',
+    ['los tralaleritos'] = '$0.82',
+    ['la grande combinasion'] = '$4.91',
+    ['sammyni spyderini'] = '$0.89',
+    ['garama and madundung'] = '$34'
 }
