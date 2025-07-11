@@ -2,6 +2,7 @@ repeat task.wait() until game:GetService('Players').LocalPlayer
 repeat task.wait() until game:IsLoaded()
 task.wait(5)
 
+local isDelivering = false
 local VIM = game:GetService('VirtualInputManager')
 local function antiafk()
     game:GetService('Players').LocalPlayer.Idled:Connect(function()
@@ -10,6 +11,7 @@ local function antiafk()
         end
     end)
     while task.wait(555) do
+        if isDelivering then return end
         VIM:SendKeyEvent(true, "W", false, nil)
         task.wait(1)
         VIM:SendKeyEvent(false, "W", false, nil)
@@ -81,6 +83,7 @@ local function stealStuff(petName)
                     closestPet = v
                 end
                 if closestPet then
+                    isDelivering = true
                     walkTo(closestPet:FindFirstChild("RootPart") or closestPet:FindFirstChildWhichIsA("BasePart"))
                     grabPet(closestPet:FindFirstChild("RootPart") or closestPet:FindFirstChildWhichIsA("BasePart"))
                 else
@@ -95,6 +98,7 @@ local function stealStuff(petName)
                 TextChannel:SendAsync('🤖 Delivered the pet!')
                 task.wait(1)
                 walkTo(workspace.MapCenter)
+                isDelivering = false
             end
         end
     end
