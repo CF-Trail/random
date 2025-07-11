@@ -2,6 +2,7 @@ repeat task.wait() until game:GetService('Players').LocalPlayer
 repeat task.wait() until game:IsLoaded()
 task.wait(5)
 
+local VIM = game:GetService('VirtualInputManager')
 local function antiafk()
     game:GetService('Players').LocalPlayer.Idled:Connect(function()
         for i, v in next, getconnections(game:GetService('Players').LocalPlayer.Idled) do
@@ -22,7 +23,6 @@ end
 task.spawn(antiafk)
 
 local TextChannel = game:GetService('TextChatService').TextChannels.RBXGeneral
-local VIM = game:GetService('VirtualInputManager')
 local Players = game:GetService('Players')
 local lplr = Players.LocalPlayer
 local humanoid = lplr.Character.Humanoid
