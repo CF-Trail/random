@@ -2,6 +2,16 @@ repeat task.wait() until game:GetService('Players').LocalPlayer
 repeat task.wait() until game:IsLoaded()
 task.wait(5)
 
+local function antiafk()
+    while task.wait(30) do
+        VIM:SendKeyEvent(true, "L", false, nil)
+        task.wait(1)
+        VIM:SendKeyEvent(false, "L", false, nil)
+    end
+end
+
+task.spawn(antiafk)
+
 local TextChannel = game:GetService('TextChatService').TextChannels.RBXGeneral
 local VIM = game:GetService('VirtualInputManager')
 local Players = game:GetService('Players')
