@@ -3,10 +3,19 @@ repeat task.wait() until game:IsLoaded()
 task.wait(5)
 
 local function antiafk()
-    while task.wait(30) do
-        VIM:SendKeyEvent(true, "L", false, nil)
+    game:GetService('Players').LocalPlayer.Idled:Connect(function()
+        for i, v in next, getconnections(game:GetService('Players').LocalPlayer.Idled) do
+            v:Disable()
+        end
+    end)
+    while task.wait(555) do
+        VIM:SendKeyEvent(true, "W", false, nil)
         task.wait(1)
-        VIM:SendKeyEvent(false, "L", false, nil)
+        VIM:SendKeyEvent(false, "W", false, nil)
+        task.wait(1)
+        VIM:SendKeyEvent(true, "S", false, nil)
+        task.wait(1)
+        VIM:SendKeyEvent(false, "S", false, nil)
     end
 end
 
