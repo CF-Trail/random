@@ -1,13 +1,13 @@
 return {
-    ['la vacca saturno saturnita'] = '$0.37',
-    ['graipuss medussi'] = '$0.75',
-    ['los tralaleritos'] = '$0.50',
-    ['la grande combinasion'] = '$4.20',
-    ['sammyni spyderini'] = '$0.30',
-    ['garama and madundung'] = '$19.87',
-    ['pot hotspot'] = '$3.75',
-    ['tortuginni dragonfrutini'] = '$7.49',
+    ['la vacca saturno saturnita'] = '$0.36',
+    ['graipuss medussi'] = '$0.60',
+    ['los tralaleritos'] = '$0.45',
+    ['la grande combinasion'] = '$3.58',
+    ['sammyni spyderini'] = '$0.51',
+    ['garama and madundung'] = '$16.64',
+    ['pot hotspot'] = '$5.99',
+    ['tortuginni dragonfrutini'] = '$3.75',
     ['las tralaleritas'] = '$0.75',
     ['chimpanzini spiderini'] = '$0.75',
-    ['secret lucky block'] = '$4.75'
+    ['secret lucky block'] = '$4.09'
 }
