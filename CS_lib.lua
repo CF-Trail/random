@@ -1,5 +1,7 @@
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+
+taken from https://scriptblox.com/script/Universal-Script-CSGO-UI-library-81657
 ]]
 
 local Library do 
