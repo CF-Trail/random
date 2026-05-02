@@ -1139,7 +1139,7 @@ Library.Sections.__index = Library.Sections;
 				Size = Options.Size or Options.size or UDim2.new(0, 550,0, 600);
 			};
 			--
-			local ScreenGui = Instance.new('ScreenGui', game.CoreGui)
+			local ScreenGui = Instance.new('ScreenGui', game:GetService('CoreGui'))
 			local Outline = Instance.new('Frame', ScreenGui)
 			local Inline = Instance.new('Frame', Outline)
 			local Accent = Instance.new('Frame', Inline)
