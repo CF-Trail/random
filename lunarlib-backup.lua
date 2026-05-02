@@ -255,9 +255,9 @@ local Visuals = {
 local LocalPlayer = Players.LocalPlayer; 
 local Mouse = LocalPlayer:GetMouse();
 local Camera = Workspace.Camera;
-local viewportSize = game.Workspace.Camera.ViewportSize;
+local viewportSize = workspace.Camera.ViewportSize;
 local Offset = game:GetService("GuiService"):GetGuiInset().Y;
-local NotifiactionSGui = Instance.new("ScreenGui", game.CoreGui); NotifiactionSGui.Enabled = true
+local NotifiactionSGui = Instance.new("ScreenGui", game:GetService('CoreGui')); NotifiactionSGui.Enabled = true
 local NewVector2 = Vector2.new;
 local NewVector3 = Vector3.new;
 local NewCFrame = CFrame.new; 
@@ -293,7 +293,7 @@ local crosshair_LineAmount = 4;
 local crosshair_SpinAngle = 0; 
 local crosshair_tick = 0;
 local buying = false; 
-local PlaceHolderUI = Instance.new("ScreenGui", game.CoreGui);
+local PlaceHolderUI = Instance.new("ScreenGui", game:GetService('CoreGui'));
 PlaceHolderUI.Enabled = false
 local Languages = {
     A = {English = "A", Arabic = "أ", Albanian = "A", Japanese = "あ", Spanish = "A", Russian = "А", Chinese = "阿", Urdu = "ا", French = "A", Portuguese = "A", Hindi = "अ"},
