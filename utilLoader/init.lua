@@ -171,8 +171,8 @@ blueRPRINT(
     ____) |  / /__   / /__  | |____       ____) |   | |__| |    | |     _| |_  | |____   _| |_     | |     _| |_  | |____   ____) |
    |_____/  /_____| /_____| |______|     |_____/     \____/     |_|    |_____| |______| |_____|    |_|    |_____| |______| |_____/ 
                                                                                                                                    
-                                                            Made by szze#6220
-                                                                  V1.3
+                                                              Made by szze
+                                                                  V1.4
                                                     
     ]] .. '\n'
 )
@@ -291,5 +291,5 @@ local ver = 'V1.4'
 local verMain = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
 
 if ver ~= verMain then
-	game:GetService('Players').LocalPlayer:Kick('Please get newer version. Your ver: ' .. ver .. ' | Script ver: ' .. verMain)
+	LMagentaPrint('Please update your utils script. -CF-Trail.')
 end
