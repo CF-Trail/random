@@ -269,7 +269,7 @@ GreenPrint('AntiAFK loaded \n')
 
 --// Ver Checker
 
-local ver = 'V1.3'
+local ver = 'V1.4'
 local verMain = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
 
 if ver ~= verMain then
