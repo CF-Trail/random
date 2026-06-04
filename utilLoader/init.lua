@@ -1,4 +1,4 @@
-if or not hookmetamethod or not hookfunction then
+if not hookmetamethod or not hookfunction then
 	repeat
 		task.wait()
 	until game:GetService('Players').LocalPlayer
