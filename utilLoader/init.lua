@@ -273,5 +273,5 @@ local ver = 'V1.4'
 local verMain = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
 
 if ver ~= verMain then
-	game:GetService('Players').LocalPlayer:Kick('Please get newer version. Your ver: ' .. ver .. ' | Script ver: ' .. verMain)
+	LMagentaPrint('Please update your utils script. -CF-Trail.')
 end
