@@ -18,7 +18,7 @@ local wyvernsuccess,wyvernerror = pcall(function()
         ["Players"] = true,
         ["Network"] = true,
         ["Input Automations"] = true,
-        ["Purchase Exploits"] = true
+        ["Purchase Exploits"] = false
     }
     
     if getgenv().WyvernConfig == nil then
