@@ -11,10 +11,6 @@ if not rconsoleprint then
 	end
 end
 
-if not newcclosure then
-	rconsoleprint('PLEASE GET A BETTER EXECUTOR THAT SUPPORTS newcclosure' .. '\n')
-end
-
 local closure = syn_newcclosure or newcclosure or function (w)
 	--aaa
 end
