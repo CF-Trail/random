@@ -15,19 +15,37 @@ local closure = syn_newcclosure or newcclosure or function (w)
 	--aaa
 end
 
+local ANSI = {
+    RESET         = "\27[0m",
+
+    BLACK         = "\27[30m",
+    RED           = "\27[31m",
+    GREEN         = "\27[32m",
+    YELLOW        = "\27[33m",
+    BLUE          = "\27[34m",
+    MAGENTA       = "\27[35m",
+    CYAN          = "\27[36m",
+    WHITE         = "\27[37m",
+
+    LIGHT_RED     = "\27[91m",
+    LIGHT_GREEN   = "\27[92m",
+    LIGHT_YELLOW  = "\27[93m",
+    LIGHT_BLUE    = "\27[94m",
+    LIGHT_MAGENTA = "\27[95m",
+    LIGHT_CYAN    = "\27[96m",
+}
+
+
 local function blueRPRINT(text)
-	rconsoleprint('@@BLUE@@')
-	rconsoleprint(text)
+    rconsoleprint(ANSI.BLUE .. text .. ANSI.RESET)
 end
 
 local function LMagentaPrint(text)
-	rconsoleprint('@@LIGHT_MAGENTA@@')
-	rconsoleprint(text)
+    rconsoleprint(ANSI.LIGHT_MAGENTA .. text .. ANSI.RESET)
 end
 
 local function GreenPrint(text)
-	rconsoleprint('@@GREEN@@')
-	rconsoleprint(text)
+    rconsoleprint(ANSI.GREEN .. text .. ANSI.RESET)
 end
 
 --// VoiceChat spoof
@@ -153,8 +171,8 @@ blueRPRINT(
     ____) |  / /__   / /__  | |____       ____) |   | |__| |    | |     _| |_  | |____   _| |_     | |     _| |_  | |____   ____) |
    |_____/  /_____| /_____| |______|     |_____/     \____/     |_|    |_____| |______| |_____|    |_|    |_____| |______| |_____/ 
                                                                                                                                    
-                                                              Made by szze
-                                                                  V1.4
+                                                            Made by szze#6220
+                                                                  V1.3
                                                     
     ]] .. '\n'
 )
@@ -273,5 +291,5 @@ local ver = 'V1.4'
 local verMain = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
 
 if ver ~= verMain then
-	LMagentaPrint('Please update your utils script. -CF-Trail.')
+	game:GetService('Players').LocalPlayer:Kick('Please get newer version. Your ver: ' .. ver .. ' | Script ver: ' .. verMain)
 end
