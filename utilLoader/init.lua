@@ -170,7 +170,7 @@ GreenPrint("AntiAFK loaded \n")
 
 local ver = "V1.5"
 local ok, verMain = pcall(function()
-    return loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/CF-Trail/random/main/utilLoader/ver"))()
 end)
 if ok and ver ~= verMain then
     LMagentaPrint("Please update your utils script. -CF-Trail.")
