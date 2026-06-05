@@ -143,7 +143,6 @@ task.spawn(function()
     if not isAdonis then
         blockKickFunc(lplr.Kick, "")
     else
-        rconsoleprint("@@RED@@")
         rconsoleprint("Adonis detected! __index kick bypass will not work. \n")
     end
 end)
